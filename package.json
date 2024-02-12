@@ -10,9 +10,15 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@mdi/font": "^7.4.47",
+    "@oruga-ui/oruga-next": "^0.8.3",
+    "@oruga-ui/theme-bootstrap": "^0.5.4",
+    "@vuepic/vue-datepicker": "^8.1.0",
+    "apexcharts": "^3.45.2",
     "bootstrap": "^5.3.2",
     "vue": "^3.3.11",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "vue3-apexcharts": "^1.5.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.2",
