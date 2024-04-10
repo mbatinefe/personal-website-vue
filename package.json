@@ -15,8 +15,10 @@
     "@oruga-ui/theme-bootstrap": "^0.5.4",
     "@vuepic/vue-datepicker": "^8.1.0",
     "apexcharts": "^3.45.2",
-    "bootstrap": "^5.3.2",
+    "bootstrap": "^5.3.3",
+    "pdfjs-dist": "^4.0.379",
     "vue": "^3.3.11",
+    "vue-pdf": "^4.3.0",
     "vue-router": "^4.2.5",
     "vue3-apexcharts": "^1.5.2"
   },

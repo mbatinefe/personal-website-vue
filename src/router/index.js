@@ -7,24 +7,29 @@ const routes = [
     component: () => import('../views/HomeView.vue')
   },
   {
+    path: '/skills',
+    name: 'skills',
+    component: () => import('../views/SkillsView.vue')
+  },
+  {
     path: '/projects',
     name: 'projects',
-    component: () => import('../views/HomeView.vue')
+    component: () => import('../views/ProjectsView.vue')
   },
   {
     path: '/social',
     name: 'social',
-    component: () => import('../views/HomeView.vue')
+    component: () => import('../views/SocialMedia.vue')
   },
   {
     path: '/resume',
     name: 'resume',
-    component: () => import('../views/HomeView.vue')
+    component: () => import('../views/ResumeView.vue')
   },
   {
     path: '/contact',
     name: 'contact',
-    component: () => import('../views/HomeView.vue')
+    component: () => import('../views/ContactView.vue')
   },
 ];
 
