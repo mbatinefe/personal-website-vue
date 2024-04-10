@@ -14,9 +14,6 @@
                 <router-link class="nav-link" to="/projects">Projects</router-link>
             </li>
             <li class="nav-item">
-                <router-link class="nav-link" to="/social">Social Media</router-link>
-            </li>
-            <li class="nav-item">
                 <router-link class="nav-link" to="/resume">Resume</router-link>
             </li>
             <li class="nav-item">

@@ -17,11 +17,6 @@ const routes = [
     component: () => import('../views/ProjectsView.vue')
   },
   {
-    path: '/social',
-    name: 'social',
-    component: () => import('../views/SocialMedia.vue')
-  },
-  {
     path: '/resume',
     name: 'resume',
     component: () => import('../views/ResumeView.vue')
