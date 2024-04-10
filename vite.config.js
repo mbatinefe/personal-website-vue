@@ -1,15 +1,19 @@
-import { fileURLToPath, URL } from 'node:url'
+// vite.config.js
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import { fileURLToPath, URL } from 'node:url';
 
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-
-// https://vitejs.dev/config/
 export default defineConfig({
-  base: '/personal-website-vue/',
   plugins: [
+    vue(),
   ],
   resolve: {
     alias: {
-    }
-  }
-})
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
+  base: '/personal-website-vue/', // Replace <REPO_NAME> with your GitHub repository name.
+  build: {
+    outDir: 'docs',
+  },
+});
