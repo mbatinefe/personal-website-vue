@@ -29,9 +29,8 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory('/'),
   routes,
-  // You can keep duplicateNavigationPolicy if you need it, but make sure it's necessary for your use case.
 });
 
 export default router;
