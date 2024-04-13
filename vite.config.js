@@ -12,7 +12,7 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  base: '/personal-website-vue/', // Replace <REPO_NAME> with your GitHub repository name.
+  base: '/', // Replace <REPO_NAME> with your GitHub repository name.
   build: {
     outDir: 'docs',
   },
