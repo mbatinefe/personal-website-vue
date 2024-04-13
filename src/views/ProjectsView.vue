@@ -94,9 +94,54 @@
   </script>
   
   <style scoped>
+  h2.text-center {
+  color: #86C232;
+  font-weight: bold;
+  }
+
   .projects {
     padding-top: 20px;
     padding-bottom: 40px;
+  }
+  
+  .card {
+    background-color: #222629; /* Light grey background */
+    color: #333; /* Darker text for better readability */
+    border: none; /* Removes default border */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for hover effects */
+  }
+  
+  .card:hover {
+    transform: translateY(-5px); /* Slightly raise the card on hover */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Enhanced shadow on hover */
+  }
+  
+  .card img {
+    border-top-left-radius: calc(0.25rem - 1px); /* Ensures the image aligns with rounded card corners */
+    border-top-right-radius: calc(0.25rem - 1px);
+  }
+  
+  .card .card-body {
+    padding: 20px; /* More padding for spacing inside the card */
+  }
+  
+  .card .card-title {
+    color: #86C232; /* Specific color for titles */
+  }
+  
+  .card .card-text {
+    color: #666; /* Lighter text color for descriptions */
+  }
+  
+  .btn-primary {
+    background-color: #86C232; /* Primary button color for 'View Project' */
+    border-color: #86C232;
+  }
+  
+  .btn-primary:hover {
+    background-color: #86C232; /* Darker shade on hover */
+    border-color: #86C232;
   }
   </style>
   

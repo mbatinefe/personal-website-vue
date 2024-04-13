@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-      <h1>Welcome to My Portfolio</h1>
+      <h2 class="text-center my-4">Welcome to My Portfolio</h2>
       <p>This is a brief introduction about myself.</p>
     </div>
   </template>
@@ -16,4 +16,10 @@
     text-align: center;
     margin-top: 20px;
   }
+  
+  h2.text-center {
+  color: #86C232;
+  font-weight: bold;
+  }
+
   </style>

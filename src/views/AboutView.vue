@@ -12,4 +12,9 @@
     align-items: center;
   }
 }
+h2.text-center {
+  color: #86C232;
+  font-weight: bold;
+  }
+  
 </style>
