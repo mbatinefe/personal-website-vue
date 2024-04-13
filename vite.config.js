@@ -12,7 +12,7 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  base: '/personal-website-vue/',
+  base: '/',
   build: {
     outDir: 'docs',
   },
