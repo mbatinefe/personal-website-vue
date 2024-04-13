@@ -6,7 +6,6 @@
       <a href="/MustafaBatin.pdf">Download the PDF</a>.
     </iframe>
     <br/>
-    <a href="/MustafaBatin.pdf" download="MustafaBatin.pdf" class="btn btn-primary">Download Resume</a>
   </div>
 </template>
 
