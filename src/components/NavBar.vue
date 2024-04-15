@@ -9,7 +9,6 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
 
-
             <li class="nav-item">
               <router-link class="nav-link" to="/projects" active-class="active-link">Projects</router-link>
             </li>
