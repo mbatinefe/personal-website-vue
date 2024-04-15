@@ -3,7 +3,7 @@
     <h2 class="text-center my-4">Contact</h2>
     <p class="lead">If you're interested in working together or have a question, feel free to reach out!</p>
     <div class="contact-links">
-      <a href="mailto:mbatin@sabanciuniv.edu" class="btn btn-primary my-2">Email Me</a>
+  
       <a href="https://www.linkedin.com/in/mbefe/" target="_blank" class="btn btn-info my-2">LinkedIn</a>
       <a href="https://github.com/mbatinefe" target="_blank" class="btn btn-dark my-2">GitHub</a>
     </div>

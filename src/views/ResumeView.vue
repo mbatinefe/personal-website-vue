@@ -1,9 +1,9 @@
 <template>
   <div class="resume-view">
     <h2 class="text-center my-4">Resume</h2>
-    <iframe src="/MustafaBatin.pdf" frameborder="0" width="100%" height="500px">
+    <iframe src="/MustafaBatin-Website.pdf" frameborder="0" width="100%" height="100vh">
       Your browser does not support PDFs.
-      <a href="/MustafaBatin.pdf">Download the PDF</a>.
+      <a href="/MustafaBatin-Website.pdf">Download the PDF</a>.
     </iframe>
     <br/>
   </div>
@@ -25,5 +25,19 @@ h2.text-center {
 .resume-view {
   text-align: center;
   padding: 20px;
+  height: calc(100vh - 40px);
 }
+
+iframe {
+  width: 100%; 
+  height: 80vh; 
+  border: none; 
+}
+
+@media (max-width: 768px) {
+  iframe {
+    height: 60vh;
+  }
+}
+
 </style>
