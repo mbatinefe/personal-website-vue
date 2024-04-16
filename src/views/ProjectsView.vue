@@ -30,7 +30,7 @@
             id: 1,
             title: 'Full Stack Event Management',
             description: 'Event and volunteer management system website designed to improve efficiency and user engagement.',
-            skills: ['HTML','JavaScript','CSS','SDLC','Vue.js', 'Node.js', 'Express', 'MongoDB'],
+            skills: ['HTML','JavaScript','CSS','Vue.js', 'Express.js', 'MongoDB', 'RESTful API Development', 'Database Integration', 'Authentication Mechanisms', 'Project Management','Single Page Applications (SPAs)','Software Development Lifecycle'],
             image: './project-DALL-E/DALL-E-FullStackEvent.webp',
             link: 'https://github.com/mbatinefe/event-management-full-stack'
           },
@@ -38,6 +38,7 @@
             id: 2,
             title: 'Multiplayer Painting Game',
             description: 'Interactive game allowing multiple players to draw on a shared canvas in real-time.',
+            skills: ['Java', 'Socket Programming', 'Client-Server Architecture', 'GUI Development', 'Event Handling', 'Concurrency in Java', 'Network Communication', 'Debugging Java Applications'],
             image: './project-DALL-E/DALL-E-MultPaintingGame.webp', 
             link: 'https://github.com/mbatinefe/painting-game-with-server'
           },
@@ -45,6 +46,7 @@
             id: 3,
             title: 'Mini Neural Network',
             description: 'Demonstration of neural network concepts through a simple classification task.',
+            skills: ['Python', 'Neural Network Implementation', 'PyTorch', 'Data Handling with Numpy', 'Machine Learning Fundamentals', 'Deep Learning'],
             image: './project-DALL-E/DALL-E-MiniNeuralNetwork.webp', 
             link: 'https://github.com/mbatinefe/neural-networks-mini'
           },
@@ -52,6 +54,7 @@
             id: 4,
             title: 'Istanbul Traffic-Fuel Analysis',
             description: 'Analysis of traffic patterns and fuel usage to optimize transportation and reduce costs.',
+            skills: ['Python', 'Data Analysis', 'Pandas Library', 'Data Visualization', 'Matplotlib', 'Data Scraping', 'Web Data Extraction', 'Automated Data Processing', 'Geospatial Analysis'],
             image: './project-DALL-E/DALL-E-IstanbulTraffic.webp', 
             link: 'https://github.com/mbatinefe/istanbul-traffic-fuel-analysis'
           },
@@ -59,6 +62,7 @@
             id: 5,
             title: 'Monopoly Board Game',
             description: 'Digital version of Monopoly with enhanced gameplay features and user interface.',
+            skills: ['C++ Programming', 'Object-Oriented Programming', 'Game Development', 'Dynamic Memory Management', 'File I/O'],
             image: './project-DALL-E/DALL-E-Monopoly.webp', 
             link: 'https://github.com/mbatinefe/monopoly-board-game'
           },
@@ -66,6 +70,7 @@
             id: 6,
             title: 'Weekly Schedule Maker',
             description: 'Tool for efficiently managing and scheduling weekly tasks and appointments.',
+            skills: ['C++ Programming', 'Algorithm Design', 'Data Structures', 'File I/O in C++', 'Problem Solving'],
             image: './project-DALL-E/DALL-E-Schedule.webp',  
             link: 'https://github.com/mbatinefe/schedule-maker'
           },
@@ -73,6 +78,7 @@
             id: 7,
             title: 'Backgammon Game',
             description: 'Implementation of the classic board game Backgammon with a focus on AI gameplay.',
+            skills: ['C++ Programming', 'Object-Oriented Programming', 'Game Development', 'Logical Thinking'],
             image: './project-DALL-E/DALL-E-Backgammon.webp', 
             link: 'https://github.com/mbatinefe/backgammon'
           },
@@ -80,6 +86,7 @@
             id: 8,
             title: 'NFT - Educated Ape Club',
             description: 'NFT collection on the Polygon blockchain featuring unique digital artwork.',
+            skills: ['Solidity Programming', 'Smart Contract Development', 'Polygon Blockchain Familiarity', 'IPFS for Metadata Storage', 'Web3 Integration', 'Cryptographic Techniques', 'Decentralized App Development', 'Blockchain Security Practices', 'Token Standards Knowledge', 'NFT Marketplace Deployment'],
             image: './project-DALL-E/EducatedApeClub-Sabanci.png', 
             link: 'https://opensea.io/collection/educatedapeclub'
           },
@@ -90,7 +97,7 @@
   };
   </script>
   
-  <style scoped>
+<style scoped>
   h2.text-center {
     color: #86C232;
     font-weight: bold;

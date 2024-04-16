@@ -1,9 +1,9 @@
 <template>
   <div class="resume-view">
     <h2 class="text-center my-4">Resume</h2>
-    <iframe src="/MustafaBatin-Website-Draft.pdf" frameborder="0" width="100%" height="100vh">
+    <iframe src="/website-resume-mustafa_batin.pdf" frameborder="0" width="100%" height="100vh">
       Your browser does not support PDFs.
-      <a href="/MustafaBatin-Website-Draft.pdf">Download the PDF</a>.
+      <a href="/website-resume-mustafa_batin.pdf">Download the PDF</a>.
     </iframe>
     <br/>
   </div>
