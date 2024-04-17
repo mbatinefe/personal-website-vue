@@ -46,7 +46,7 @@
                 ],
             },
             {
-                title: 'Student - Work',
+                title: 'Student Worker',
                 name: 'Summer Work and Travel Exchange',
                 start: 'June 2023',
                 end: 'Aug 2023',
@@ -57,7 +57,7 @@
             },
 
             {
-                title: 'Student - Work',
+                title: 'Student Worker',
                 name: 'Summer Work and Travel Exchange',
                 start: 'June 2022',
                 end: 'Sept 2022',
@@ -67,7 +67,7 @@
                 ],
             },
             {
-                title: 'Student - Work',
+                title: 'Student Worker',
                 name: 'Summer Work and Travel Exchange',
                 start: 'June 2021',
                 end: 'Sept 2021',
@@ -214,9 +214,18 @@
         font-style: italic;
     }
     
+    .timeline-date {
+        width: 220px;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 20px;
+    }
+
     @media (max-width: 768px) {
         .timeline-date {
-            min-width: 120px;
+            width: 200px;
             font-size: 0.9em;
         }
 
@@ -235,16 +244,22 @@
         .timeline-icon {
             margin-bottom: 10px;
         }
-        }
-
-    .timeline-date {
-        min-width: 140px;
-        font-weight: bold;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-right: 20px;
     }
 
+    @media (min-width: 769px) and (max-width: 991px) {
+        .timeline-date {
+            width: 320px;
+            font-size: 0.9em;
+        }
+
+        .timeline-content {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .timeline-icon {
+            margin-bottom: 10px;
+        }
+    }
   </style>
   
