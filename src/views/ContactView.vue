@@ -9,11 +9,14 @@
     </div>
   </div>
 </template>
+
 <style scoped>
+
 .contact {
-  padding-top: 40px;
+  padding-top: 20px;
   padding-bottom: 60px;
-  background-color: #6B6E70; /* Dark grey background */
+  margin-top: 40px;
+  background-color: #3b3b3b; /* Dark grey background */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
