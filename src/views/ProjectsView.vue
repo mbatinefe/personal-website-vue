@@ -2,12 +2,13 @@
   <div class="projects container">
     <h2 class="text-center my-4">Projects</h2>
     <div class="row">
-      <div class="col-md-4" v-for="project in projects" :key="project.id">
+      <div class="col-md-4" v-for="project in projects" :key="project.id" >
         <div class="card mb-4">
-          <img :src="project.image" class="card-img-top" alt="Project Image">
-          <div class="card-body">
+          <img :src="project.image" class="card-img-top" alt="Project Image"  @click="activateProject(project)">
+          <div class="card-body" >
             <h5 class="card-title">{{ project.title }}</h5>
             <p class="card-text">{{ project.description }}</p>
+            <h6 class="skills-heading">Skills Acquired</h6>
             <div class="skills-container">
               <span class="badge bg-secondary" v-for="skill in project.skills" :key="skill">{{ skill }}</span>
             </div>
@@ -16,9 +17,14 @@
         </div>
       </div>
     </div>
+    <div v-if="activeProject" class="modal-overlay" @click="closeModal()">
+      <div class="modal-content" @click.stop> 
+        <img :src="activeProject.image" class="zoom-img">
+        <button class="close-btn" @click="closeModal()">×</button>
+      </div>
+    </div>
   </div>
 </template>
-
   
   <script>
   export default {
@@ -92,12 +98,39 @@
           },
           // I will add other projects
         ],
+        activeProject: null
       };
     },
+    methods: {
+      activateProject(project) {
+      this.activeProject = project;  
+
+      },
+      closeModal() {
+        this.activeProject = null;
+      }
+    }
   };
   </script>
   
 <style scoped>
+
+  .category-box {
+    background-color: #3b3b3b;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .skills-heading {
+    font-size: 16px;
+    color: #86C232; 
+    margin-top: 10px; 
+    margin-bottom: 8px; 
+    text-align: center;
+
+  }
+
   h2.text-center {
     color: #86C232;
     font-weight: bold;
@@ -108,17 +141,50 @@
     padding-bottom: 40px;
   }
   
+  .row {
+    display: flex; 
+    flex-wrap: wrap; 
+    margin-right: -15px;
+    margin-left: -15px;
+    background-color: #3b3b3b;
+    
+  }
+
+  .col-md-4 {
+    display: flex;
+    padding-right: 15px; 
+    padding-left: 15px; 
+
+  }
+
   .card {
-    background-color: #222629; 
-    color: #333; 
-    border: none; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+    display: flex;
+    flex-direction: column; 
+    background-color: #222629;
+    color: #333;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    flex: 1;
+    margin-top: 2.5rem;
+  }
+
+  .card-body {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    padding: 20px;
+  }
+
+  .card-text{
+    margin-bottom: 10px; 
   }
   
   .card:hover {
     transform: translateY(-5px); 
     box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+    
   }
   
   .card img {
@@ -141,19 +207,22 @@
   .btn-primary {
     background-color: #86C232;
     border-color: #86C232;
+    margin-top: auto;
+    width: 100%;
   }
   
   .btn-primary:hover {
     background-color: #86C232;
     border-color: #86C232;
+    
   }
-
 
   .skills-container {
     display: flex;
-    justify-content: center; /* Center the badges horizontally */
-    flex-wrap: wrap; /* Allow the badges to wrap */
-    margin-bottom: 10px; /* Spacing below the badge container */
+    justify-content: center; 
+    flex-wrap: wrap; 
+    margin-top: auto; 
+    margin-bottom: 15px;
   }
 
   .badge {
@@ -164,5 +233,48 @@
     background-color: #86C232; 
   }
 
+  /* Image Zoom */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    position: relative;
+    width: auto; 
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.5); 
+  }
+  
+  .zoom-img {
+    display: block; 
+    max-width: 100%;
+    max-height: 80vh; 
+    object-fit: contain; 
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+  }
 </style>
   

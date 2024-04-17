@@ -96,38 +96,61 @@
 
 <style scoped>
 
-.category-title {
-  color: #86C232;
-  font-size: 1.75rem;
-  margin-top: 1px;
-  margin-bottom: 20px;
-}
+  .category-title {
+    color: #86C232;
+    font-size: 1.75rem;
+    margin-top: 1px;
+    margin-bottom: 20px;
+  }
 
-.category-box {
-  background-color: #3b3b3b;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
+  .category-box {
+    background-color: #3b3b3b;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
 
-h2.text-center {
-  color: #7ac019;
-  font-weight: bold;
-}
+  h2.text-center {
+    color: #7ac019;
+    font-weight: bold;
+  }
 
-.skills {
-  padding-top: 20px;
-  padding-bottom: 40px;
-  background-color: #6B6E70; 
-}
+  .skills {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    background-color: #6B6E70; 
+  }
 
-.card {
-  background-color: #222629; 
-  border: 1px solid #333;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
-  transition: transform 0.3s ease-in-out; 
-}
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  .col-md-4 {
+    display: flex;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    background-color: #222629;
+    border: 1px solid #333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out;
+    flex: 1;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
 
 .card:hover {
   transform: translateY(-5px); 
@@ -154,7 +177,7 @@ h2.text-center {
 .progress {
   background-color: #ddd;
   border-radius: 5px;
-  overflow: hidden; /* Ensures the rounded corners are applied to child elements */
+  overflow: hidden;
 }
 
 .progress-bar {
@@ -164,6 +187,21 @@ h2.text-center {
   align-items: center;
   justify-content: center;
   color: white;
+}
+
+.category-title {
+  color: #86C232;
+  font-size: 1.75rem;
+  margin-top: 1px;
+  margin-bottom: 20px;
+}
+
+.category-box {
+  background-color: #3b3b3b;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 </style>
