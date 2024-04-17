@@ -277,5 +277,12 @@
     font-size: 30px;
     cursor: pointer;
   }
+
+  @media (max-width: 768px) {
+  .close-btn {
+      right: 1.2rem;
+    }
+}
+
 </style>
   

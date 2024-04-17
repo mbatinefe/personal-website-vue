@@ -55,7 +55,6 @@
                     'Gained significant cultural exposure and developed global communication skills.'
                 ],
             },
-
             {
                 title: 'Student Worker',
                 name: 'Summer Work and Travel Exchange',
@@ -106,7 +105,6 @@
                 details: [
                     'Moderated weekly lessons for the children with disabilities.'
                 ],
-
             }
         ]
       };
@@ -136,6 +134,13 @@
         display: flex;
         width: 100%;
         margin-bottom: 20px;
+
+        border: 1px solid #333; 
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+        padding: 5px;
+        padding-bottom: 0;
+        border-radius: 8px;
+
     }
    
     .timeline-name {
@@ -221,6 +226,7 @@
         justify-content: space-between;
         align-items: center;
         margin-right: 20px;
+        margin-left: 20px;
     }
 
     @media (max-width: 768px) {
@@ -248,7 +254,7 @@
 
     @media (min-width: 769px) and (max-width: 991px) {
         .timeline-date {
-            width: 320px;
+            width: 340px;
             font-size: 0.9em;
         }
 

@@ -130,12 +130,17 @@
 .timeline-item {
     margin-bottom: 20px;
     position: relative;
+    
+    border: 1px solid #333; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+    padding: 5px;
+    border-radius: 8px;
 }
 
 .timeline-icon {
     position: absolute;
-    top: 0;
-    left: -30px;
+    top: 0.5rem;
+    left: -40px;
     width: 25px;
     height: 25px;
     background-color: #86C232;
