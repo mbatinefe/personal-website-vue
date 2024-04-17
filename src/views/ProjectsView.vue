@@ -122,11 +122,12 @@
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
+
   .skills-heading {
     font-size: 16px;
     color: #86C232; 
     margin-top: 10px; 
-    margin-bottom: 8px; 
+    margin-bottom: 10px; 
     text-align: center;
 
   }
@@ -179,6 +180,7 @@
 
   .card-text{
     margin-bottom: 10px; 
+    height: 7rem;
   }
   
   .card:hover {
@@ -221,7 +223,6 @@
     display: flex;
     justify-content: center; 
     flex-wrap: wrap; 
-    margin-top: auto; 
     margin-bottom: 15px;
   }
 
