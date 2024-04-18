@@ -8,6 +8,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
+            
+            <li class="nav-item">
+              <router-link class="nav-link" to="/activities" active-class="active-link">Activities</router-link>
+            </li>
 
             <li class="nav-item">
               <router-link class="nav-link" to="/projects" active-class="active-link">Projects</router-link>
@@ -18,17 +22,13 @@
             </li>
 
             <li class="nav-item">
-              <router-link class="nav-link" to="/activities" active-class="active-link">Activities</router-link>
+              <router-link class="nav-link" to="/education" active-class="active-link">Education</router-link>
             </li>
 
             <li class="nav-item">
               <router-link class="nav-link" to="/certificates" active-class="active-link">Certificates</router-link>
             </li>
-
-            <li class="nav-item">
-              <router-link class="nav-link" to="/education" active-class="active-link">Education</router-link>
-            </li>
-
+            
             <li class="nav-item">
               <router-link class="nav-link" to="/resume" active-class="active-link">Resume</router-link>
             </li>

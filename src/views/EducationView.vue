@@ -94,7 +94,7 @@
             institution: 'Cozum Akademi High School',
             program: 'High School',
             duration: 'September 2018 - June 2020',
-            description: 'High school focused on science, math, and university entrance exam',
+            description: 'High school focused on science, math, and university entrance exam (YKS).',
           },
           {
             institution: 'Burak Bora Anatolian High School',
@@ -130,11 +130,12 @@
 .timeline-item {
     margin-bottom: 20px;
     position: relative;
-    
-    border: 1px solid #333; 
+    background-color: #222629;
+    border: 1px solid #ccc; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
     padding: 5px;
     border-radius: 8px;
+
 }
 
 .timeline-icon {
@@ -154,9 +155,12 @@
 .timeline-content {
     margin-left: 20px;
     border-left: 2px solid #86C232;
+    
     padding-left: 20px;
     border-radius: 8px;
     padding: 10px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .timeline-title {

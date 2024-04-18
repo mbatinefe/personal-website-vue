@@ -36,6 +36,11 @@ const routes = [
     name: 'activities',
     component: () => import('../views/ActivitiesView.vue')
   },
+  {
+    path: '/certificates',
+    name: 'certificates',
+    component: () => import('../views/CertificatesView.vue')
+  },
 ];
 
 const router = createRouter({

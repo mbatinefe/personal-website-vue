@@ -139,7 +139,7 @@
     display: flex;
     flex-direction: column;
     background-color: #222629;
-    border: 1px solid #333;
+    border: 1px solid #ccc;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: transform 0.3s ease-in-out;
     flex: 1;

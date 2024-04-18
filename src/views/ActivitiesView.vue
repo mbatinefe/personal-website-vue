@@ -134,8 +134,8 @@
         display: flex;
         width: 100%;
         margin-bottom: 20px;
-
-        border: 1px solid #333; 
+        background-color: #222629;
+        border: 1px solid #ccc; 
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
         padding: 5px;
         padding-bottom: 0;
@@ -178,6 +178,8 @@
       border-radius: 8px;
       padding: 10px 20px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-top: 1rem;
+      margin-bottom: 1rem;
     }
   
     .timeline-details {
@@ -231,7 +233,7 @@
 
     @media (max-width: 768px) {
         .timeline-date {
-            width: 200px;
+            width: 230px;
             font-size: 0.9em;
         }
 
@@ -245,6 +247,7 @@
         .timeline-content {
             width: 100%;
             margin-top: 1rem;
+            margin-bottom: 1rem;
         }
 
         .timeline-icon {
@@ -261,6 +264,7 @@
         .timeline-content {
             width: 100%;
             margin-top: 1rem;
+            margin-bottom: 1rem;
         }
 
         .timeline-icon {
