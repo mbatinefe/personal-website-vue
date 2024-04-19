@@ -235,6 +235,7 @@
         .timeline-date {
             width: 230px;
             font-size: 0.9em;
+            margin-top: 1rem;
         }
 
         .timeline-item {

@@ -5,32 +5,37 @@
             <div class="certificate-card" v-for="(certificate, index) in certificates" :key="index">
             <div class="certificate-content">
                 <h5 class="certificate-title">{{ certificate.title }}</h5>
+                <p class="certificate-issue">{{ certificate.issue }}</p>
                 <p class="certificate-body">{{ certificate.body }}</p>
                 <div class="actions">
-                <button class="icon-button" @click="openModal(certificate.image)" title="Preview certificate">
-                    <i class="fas fa-eye"></i> Preview
-                </button>
-                <a :href="certificate.link" target="_blank" class="btn btn-primary" title="Verify certificate">
-                    <i class="fas fa-check-circle"></i> Verify
-                </a>
+                    <button class="icon-button" @click="openModal(certificate.image)" title="Preview certificate">
+                        <i class="fas fa-eye"></i> Preview
+                    </button>
                 </div>
             </div>
+            <a v-if="certificate.link" :href="certificate.link" target="_blank" class="btn btn-primary" title="Verify certificate">
+                <i class="fas fa-check-circle"></i> Verify
+            </a>
+            <button v-else class="btn btn-disabled" disabled title="No link available">
+                <i class="fas fa-check-circle"></i> Verify
+            </button>
             </div>
         </div>
         <div v-if="showModal" class="modal">
             <div class="modal-content">
-            <span class="close" @click="closeModal()">&times;</span>
-
-            <object v-if="isPDF(currentImage)" :data="currentImage" type="application/pdf" width="100%" height="600px">
-                This browser does not support PDFs. Please download the PDF to view it: <a :href="currentImage">Download PDF</a>.
-            </object>
-            <img v-else :src="currentImage" alt="Full Certificate" class="full-image"/>
+                <span class="close" @click="closeModal()">&times;</span>
+                <iframe v-if="isPDF(currentImage)" :src="currentImage" style="width:100%; height:600px;" type="application/pdf">
+                    This site does not accept PDFs. Please download the image: <a :href="currentImage">Download PDF</a>.
+                </iframe>
+                <img v-else :src="currentImage" alt="Full Certificate" class="zoom-img"/>
             </div>
         </div>
     </div>
 </template>
 
+
 <script>
+
     export default {
     name: 'CertificatesView',
         data() {
@@ -38,34 +43,96 @@
             certificates: [
                 {
                 title: 'HSBC StepUp Adım Adım Bankacılık Programı',
-                body: 'Completed the StepUp Banking Program by HSBC in April 2024.',
-                link: 'https://example.com/certificate-link',
-                image: './certificates/hsbc-step-up-mustafa-batin.pdf'
-            },
-                {
-                title: 'Career Essentials in Cybersecurity by Microsoft and LinkedIn',
-                body: 'Accredited by Microsoft and LinkedIn, February 2024.',
-                link: 'https://example.com/certificate-link',
-                image: './certificates/CertificateOfCompletion_Career Essentials in Cybersecurity by Microsoft and LinkedIn.pdf'
+                body: '',
+                link: '',
+                image: './certificates/hsbc-step-up-mustafa-batin.jpg',
+                issue: 'April 2024'
                 },
                 {
                 title: 'Machine Learning Specialization',
-                body: 'Advanced series completed on Coursera, March 2023.',
+                body: '',
                 link: 'https://example.com/certificate-link',
-                image: './certificates/Coursera 7LYXGR4N2WWM.pdf'
+                image: './certificates/Coursera 7LYXGR4N2WWM.jpg',
+                issue: 'Jan 2024'
                 },
                 {
                 title: 'Yarınlar Seninle Mümkün',
                 body: 'Awarded for successful participation to the program, a collaborative initiative under the Sabancı Republic Mobilization involving Çimsa, Enerjisa Energy, SabancıDx, Sabancı University, and Bilim Virusu.',
-                link: 'https://example.com/certificate-link',
-                image: './certificates/Coursera 7LYXGR4N2WWM.pdf'
-                },
+                link: '',
+                image: './certificates/yarinlar-seninle-mumkun_katilim-sertifikası-mustafa-batin.jpg',
+                issue: 'April 2024'
+                }, 
                 {
                 title: 'Advanced Learning Algorithms',
-                body: 'Awarded for successful participation to the program, a collaborative initiative under the Sabancı Republic Mobilization involving Çimsa, Enerjisa Energy, SabancıDx, Sabancı University, and Bilim Virusu.',
+                body: '',
                 link: 'https://example.com/certificate-link',
-                image: './certificates/Coursera GKMDLX3RLMA6.pdf'
+                image: './certificates/Coursera GKMDLX3RLMA6.jpg',
+                issue: 'Jan 2024'
                 },
+                {
+                title: ' Unsupervised Learning, Recommenders, Reinforcement Learning',
+                body: '',
+                link: 'https://example.com/certificate-link',
+                image: './certificates/Coursera GW2ASK54M97S.jpg',
+                issue: 'Jan 2024'
+                },
+                {
+                title: 'Supervised Machine Learning: Regression and Classification',
+                body: '',
+                link: 'https://example.com/certificate-link',
+                image: './certificates/Coursera NX53ER32M3EQ.jpg',
+                issue: 'Mar 2023'
+                },
+                {
+                title: 'Programming for Everybody (Getting Started with Python)',
+                body: '',
+                link: 'https://example.com/certificate-link',
+                image: './certificates/Coursera Q7WFH7TGLBDN.jpg',
+                issue: 'Dec 2020'
+                },
+                {
+                title: 'Career Essentials in Cybersecurity by Microsoft and LinkedIn',
+                body: '',
+                link: 'https://www.linkedin.com/learning/certificates/9706c23331ab50689cd0c6334ec42366521083fc3a04228c37f7d45192616a96?trk=public_profile_see-credential',
+                image: './certificates/CertificateOfCompletion_Career Essentials in Cybersecurity by Microsoft and LinkedIn.jpg',
+                issue: 'Jan 2024',
+                },
+                {
+                title: 'Cybersecurity Awareness: Cybersecurity Terminology',
+                body: '',
+                link: 'https://www.linkedin.com/learning/certificates/37f9fca201c7186e9a7576a908eb068a7181eafcf87ea404ceac0ea87decdb18?trk=public_profile_see-credential',
+                image: './certificates/cybersec-awareness.jpeg',
+                issue: 'Jan 2024'
+                },
+                {
+                title: 'Ethical Hacking: Introduction to Ethical Hacking',
+                body: '',
+                link: 'https://www.linkedin.com/learning/certificates/0099df67a52a0f5f0ef34fc155a6964c68f25cab62a347c54a11e8adc28c312b?trk=public_profile_see-credential',
+                image: './certificates/cybersec-ethical.jpeg',
+                issue: 'Jan 2024'
+                },
+                {
+                title: 'Cybersecurity Foundations',
+                body: '',
+                link: 'https://www.linkedin.com/learning/certificates/799307c72934e3986ce9bf8c1e02fa25e305e53a27bf7169c7aa5951b86b5968?trk=public_profile_see-credential',
+                image: './certificates/cybersec-foundations.jpeg',
+                issue: 'Jan 2024'
+                },
+                {
+                title: 'Stealth Penetration Testing with Advanced Enumeration',
+                body: '',
+                link: 'https://www.linkedin.com/learning/certificates/c0ff34ca9a007398af67c5ba6b2fd2277ad7b1be356119568c0a93dbc7c877d6?trk=public_profile_see-credential',
+                image: './certificates/cybersec-test.jpeg',
+                issue: 'Jan 2024'
+                },
+                {
+                title: 'The Cybersecurity Threat Landscape',
+                body: '',
+                link: 'https://www.linkedin.com/learning/certificates/b637777ac4700dfbdd2331a869dd49206be9cbe295d8d60b7f1d681a061ac838?trk=public_profile_see-credential',
+                image: './certificates/cybersec-threat.jpeg',
+                issue: 'Jan 2024'
+                },
+
                 // Additional certificates
             ],
             showModal: false,
@@ -74,14 +141,22 @@
         },
     methods: {
         openModal(imageUrl) {
+            console.log("Opening modal with image URL:", imageUrl);
             this.currentImage = imageUrl;
             this.showModal = true;
+            console.log("Modal open state:", this.showModal);
         },
         closeModal() {
+            console.log("Closing modal.");
             this.showModal = false;
+            console.log("Modal open state:", this.showModal);
         },
         isPDF(url) {
             return url.toLowerCase().endsWith('.pdf');
+        },
+        checkPDFSupport() {
+            let canvas = document.createElement('canvas');
+            return !!canvas.getContext && canvas.getContext('2d') && window.FileReader && window.atob;
         }
     }
 };
@@ -111,6 +186,12 @@
     margin-top: 1rem;
 }
 
+.certificate-issue {
+    color: #86C232;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -127,6 +208,8 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+
 
 .icon-button {
     background: none;
@@ -159,26 +242,27 @@
 
 .modal-content {
     position: relative;
-    background: #86C232;
-    padding: 20px;
+    background: #222629;
+    border: 2px solid #ccc;
     padding-top: 50px;
     border-radius: 10px;
     max-width: 90%;
     max-height: 90%;
     overflow: auto;
 }
+
 .close {
     position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 30px; 
+    top: 2px;
+    right: 10px;
+    font-size: 40px; 
     cursor: pointer;
-    color: black; 
+    color: red; 
     border: #4CAF50;
 }
 
 .close:hover {
-    color: red; 
+    color: green; 
 }
 
 .full-image {
@@ -192,19 +276,30 @@
     }
 }
 
-
 .btn-primary {
     background-color: #86C232;
     border-color: #86C232;
     width: 100%;
-    text-align: center; /* Center text within the button */
-    padding: 10px 0; /* Adds padding for better visual */
-    margin-top: auto; /* Pushes the button to the bottom */
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
 }
 
 .btn-primary:hover {
-    background-color: #86C232;
-    border-color: #86C232;
+    background-color: #74a131;
+    border-color: #74a131;
 }
+
+.btn-disabled {
+    background-color: #ccc;
+    color: #666;
+    border-color: #ccc;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+    cursor: not-allowed;
+}
+
 
 </style>

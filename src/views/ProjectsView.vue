@@ -163,7 +163,7 @@
     flex-direction: column; 
     background-color: #222629;
     color: #333;
-    border: none;
+    border: 1px solid #ccc; 
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     flex: 1;

@@ -142,8 +142,8 @@
     position: absolute;
     top: 0.5rem;
     left: -40px;
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     background-color: #86C232;
     border-radius: 50%;
     display: flex;
