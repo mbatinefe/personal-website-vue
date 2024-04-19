@@ -51,7 +51,7 @@
                 {
                 title: 'Machine Learning Specialization',
                 body: '',
-                link: 'https://example.com/certificate-link',
+                link: 'https://www.coursera.org/account/accomplishments/specialization/certificate/7LYXGR4N2WWM?trk=public_profile_see-credential',
                 image: './certificates/Coursera 7LYXGR4N2WWM.jpg',
                 issue: 'Jan 2024'
                 },
@@ -65,28 +65,28 @@
                 {
                 title: 'Advanced Learning Algorithms',
                 body: '',
-                link: 'https://example.com/certificate-link',
+                link: 'https://www.coursera.org/account/accomplishments/certificate/GKMDLX3RLMA6?trk=public_profile_see-credential',
                 image: './certificates/Coursera GKMDLX3RLMA6.jpg',
                 issue: 'Jan 2024'
                 },
                 {
                 title: ' Unsupervised Learning, Recommenders, Reinforcement Learning',
                 body: '',
-                link: 'https://example.com/certificate-link',
+                link: 'https://www.coursera.org/account/accomplishments/verify/GW2ASK54M97S?trk=public_profile_see-credential',
                 image: './certificates/Coursera GW2ASK54M97S.jpg',
                 issue: 'Jan 2024'
                 },
                 {
                 title: 'Supervised Machine Learning: Regression and Classification',
                 body: '',
-                link: 'https://example.com/certificate-link',
+                link: 'https://www.coursera.org/account/accomplishments/certificate/NX53ER32M3EQ?trk=public_profile_see-credential',
                 image: './certificates/Coursera NX53ER32M3EQ.jpg',
                 issue: 'Mar 2023'
                 },
                 {
                 title: 'Programming for Everybody (Getting Started with Python)',
                 body: '',
-                link: 'https://example.com/certificate-link',
+                link: 'https://tr.linkedin.com/in/coursera.org/verify/Q7WFH7TGLBDN?trk=public_profile_see-credential',
                 image: './certificates/Coursera Q7WFH7TGLBDN.jpg',
                 issue: 'Dec 2020'
                 },
