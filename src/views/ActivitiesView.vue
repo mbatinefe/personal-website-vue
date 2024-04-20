@@ -15,6 +15,7 @@
             <div class="content-details">
               <h5 class="timeline-name">{{ activity.name }}</h5>
               <h7 class="timeline-title">{{ activity.title }}</h7>
+              <h6 class="timeline-location">{{ activity.location }}</h6>
                 <div class="timeline-details">
                     <ul>
                     <li v-for="detail in activity.details" :key="detail">{{ detail }}</li>
@@ -153,6 +154,13 @@
     .timeline-title {
       color: #fff;
       font-weight: bold;
+      margin-left: 1rem;
+    }
+
+    .timeline-location {
+      color: #86C232;
+      font-style: italic;
+      margin-top: 5px;
       margin-left: 1rem;
     }
 

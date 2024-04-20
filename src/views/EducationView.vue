@@ -174,9 +174,10 @@
 }
 
 .timeline-duration {
-    color: #999;
-    font-size: 0.8em;
-    margin-bottom: 5px;
+    font-size: 1em;
+    margin-bottom: 12px;
+    color: #86C232;
+    font-style: italic;
 }
 
 .timeline-description {

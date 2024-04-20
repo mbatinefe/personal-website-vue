@@ -48,53 +48,53 @@ export default {
 
 <style scoped>
 
-.header-with-clock {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin-bottom: 20px;
-}
+  .header-with-clock {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
 
-.digital-clock {
-  background: #222629;
-  color: #86C232;
-  padding: 10px;
-  font-size: 1.5em;
-  border-radius: 5px;
-  font-family: 'Courier New', Courier, monospace;
-}
+  .digital-clock {
+    background: #222629;
+    color: #86C232;
+    padding: 10px;
+    font-size: 1.5em;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+  }
 
-.home {
-  text-align: center;
-  margin-top: 20px;
-  background-color: #333333; /* Light grey background */
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+  .home {
+    text-align: center;
+    margin-top: 20px;
+    background-color: #333333; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 
-h2.text-center {
-  color: #86C232; /* Your brand green color */
-  font-weight: bold;
-  margin-bottom: 20px;
-}
+  h2.text-center {
+    color: #86C232; 
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
 
-p {
-  color: #86C232; /* Darker text for better readability */
-  font-size: 16px; /* Slightly larger font size for readability */
-  line-height: 1.6; /* Improved line spacing for better reading experience */
-}
+  p {
+    color: #86C232; 
+    font-size: 16px; 
+    line-height: 1.6; 
+  }
 
-a.btn-info {
-  background-color: #17a2b8; /* Bootstrap info blue */
-  border: none;
-  padding: 10px 20px;
-  color: white; /* White text for contrast */
-  border-radius: 5px; /* Rounded corners for the button */
-  text-decoration: none; /* Removes underline from the link */
-}
+  a.btn-info {
+    background-color: #17a2b8; 
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px; 
+    text-decoration: none;
+  }
 
-a.btn-info:hover {
-  background-color: #139ca3; /* Slightly darker shade on hover */
-}
+  a.btn-info:hover {
+    background-color: #139ca3; 
+  }
 </style>

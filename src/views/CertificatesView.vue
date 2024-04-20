@@ -57,7 +57,7 @@
                 },
                 {
                 title: 'Yarınlar Seninle Mümkün',
-                body: 'Awarded for successful participation to the program, a collaborative initiative under the Sabancı Republic Mobilization involving Çimsa, Enerjisa Energy, SabancıDx, Sabancı University, and Bilim Virusu.',
+                body: '',
                 link: '',
                 image: './certificates/yarinlar-seninle-mumkun_katilim-sertifikası-mustafa-batin.jpg',
                 issue: 'April 2024'
@@ -96,6 +96,13 @@
                 link: 'https://www.linkedin.com/learning/certificates/9706c23331ab50689cd0c6334ec42366521083fc3a04228c37f7d45192616a96?trk=public_profile_see-credential',
                 image: './certificates/CertificateOfCompletion_Career Essentials in Cybersecurity by Microsoft and LinkedIn.jpg',
                 issue: 'Jan 2024',
+                },
+                {
+                title: 'Career Essentials in Generative AI by Microsoft and LinkedIn',
+                body: '',
+                link: 'https://www.linkedin.com/learning/certificates/a99d6ebb48adddaafd807a7af3bf90f1b6f5463d2ee3bebf1f08fc0cd009b13e',
+                image: './certificates/CertificateOfCompletion_Career Essentials in Generative AI by Microsoft and LinkedIn.jpg',
+                issue: 'April 2024',
                 },
                 {
                 title: 'Cybersecurity Awareness: Cybersecurity Terminology',
@@ -188,7 +195,7 @@
 
 .certificate-issue {
     color: #86C232;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     font-style: italic;
 }
 
