@@ -17,8 +17,10 @@
     "@vuepic/vue-datepicker": "^8.1.0",
     "apexcharts": "^3.45.2",
     "bootstrap": "^5.3.3",
+    "bootstrap-vue": "^2.23.1",
     "pdfjs-dist": "^4.1.392",
     "vue": "^3.3.11",
+    "vue-i18n": "^9.13.1",
     "vue-pdf": "^4.3.0",
     "vue-router": "^4.2.5",
     "vue3-apexcharts": "^1.5.2"
