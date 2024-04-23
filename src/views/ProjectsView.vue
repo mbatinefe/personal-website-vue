@@ -8,9 +8,10 @@
   </div>
 
   <div class="projects container">
-    <h2 class="text-center my-4">Projects</h2>
+    <h2 v-if="!isTurkish" class="text-center my-4">Projects</h2>
+    <h2 v-else class="text-center my-4">Projeler</h2>
     <div class="row">
-      <div class="col-md-4" v-for="project in projects" :key="project.id" >
+      <div class="col-md-4" v-for="project in currentProjects" :key="project.id" >
         <div class="card mb-4">
           <img :src="project.image" class="card-img-top" alt="Project Image"  @click="activateProject(project)">
           <div class="card-body" >
@@ -106,16 +107,96 @@
           },
           // I will add other projects
         ],
-        activeProject: null
+        projectsTR: [
+          {
+            id: 1,
+            title: 'Tam Kapsamlı Etkinlik Yönetimi',
+            description: 'Kullanıcı etkileşimini ve verimliliği artırmak amacıyla tasarlanmış etkinlik ve gönüllü yönetim sistemi web sitesi.',
+            skills: ['HTML', 'JavaScript', 'CSS', 'Vue.js', 'Express.js', 'MongoDB', 'RESTful API Geliştirme', 'Veritabanı Entegrasyonu', 'Kimlik Doğrulama Mekanizmaları', 'Proje Yönetimi', 'Tek Sayfa Uygulamaları (SPA)', 'Yazılım Geliştirme Yaşam Döngüsü'],
+            image: './project-DALL-E/DALL-E-FullStackEvent.webp',
+            link: 'https://github.com/mbatinefe/event-management-full-stack'
+          },
+          {
+            id: 2,
+            title: 'Çok Oyunculu Resim Oyunu',
+            description: 'Çok sayıda oyuncunun gerçek zamanlı olarak ortak bir tuval üzerinde çizim yapmasına olanak tanıyan etkileşimli oyun.',
+            skills: ['Java', 'Soket Programlama', 'İstemci-Sunucu Mimarisi', 'GUI Geliştirme', 'Olay Yönetimi', 'Java’da Eşzamanlılık', 'Ağ İletişimi', 'Java Uygulamalarını Hata Ayıklama'],
+            image: './project-DALL-E/DALL-E-MultPaintingGame.webp',
+            link: 'https://github.com/mbatinefe/painting-game-with-server'
+          },
+          {
+            id: 3,
+            title: 'Mini Sinir Ağı',
+            description: 'Basit bir sınıflandırma görevi üzerinden sinir ağı kavramlarının gösterimi.',
+            skills: ['Python', 'Sinir Ağı Uygulaması', 'PyTorch', 'Numpy ile Veri İşleme', 'Makine Öğrenimi Temelleri', 'Derin Öğrenme'],
+            image: './project-DALL-E/DALL-E-MiniNeuralNetwork.webp',
+            link: 'https://github.com/mbatinefe/neural-networks-mini'
+          },
+          {
+            id: 4,
+            title: 'İstanbul Trafik-Yakıt Analizi',
+            description: 'Trafik desenlerini ve yakıt kullanımını analiz ederek ulaşımı optimize etmek ve maliyetleri azaltmak.',
+            skills: ['Python', 'Veri Analizi', 'Pandas Kütüphanesi', 'Veri Görselleştirme', 'Matplotlib', 'Veri Kazıma', 'Web Verisi Çıkarma', 'Otomatik Veri İşleme', 'Coğrafi Analiz'],
+            image: './project-DALL-E/DALL-E-IstanbulTraffic.webp',
+            link: 'https://github.com/mbatinefe/istanbul-traffic-fuel-analysis'
+          },
+          {
+            id: 5,
+            title: 'Monopoly Tahta Oyunu',
+            description: 'Geliştirilmiş oyun özellikleri ve kullanıcı arayüzüne sahip dijital Monopoly oyunu.',
+            skills: ['C++ Programlama', 'Nesne Yönelimli Programlama', 'Oyun Geliştirme', 'Dinamik Bellek Yönetimi', 'Dosya G/Ç'],
+            image: './project-DALL-E/DALL-E-Monopoly.webp',
+            link: 'https://github.com/mbatinefe/monopoly-board-game'
+          },
+          {
+            id: 6,
+            title: 'Haftalık Program Yapıcı',
+            description: 'Haftalık görevleri ve randevuları verimli bir şekilde yönetmek ve planlamak için araç.',
+            skills: ['C++ Programlama', 'Algoritma Tasarımı', 'Veri Yapıları', 'C++’da Dosya G/Ç', 'Problem Çözme'],
+            image: './project-DALL-E/DALL-E-Schedule.webp',
+            link: 'https://github.com/mbatinefe/schedule-maker'
+          },
+          {
+            id: 7,
+            title: 'Tavla Oyunu',
+            description: 'AI oyun odağı ile klasik tavla oyununun uygulaması.',
+            skills: ['C++ Programlama', 'Nesne Yönelimli Programlama', 'Oyun Geliştirme', 'Mantıksal Düşünme'],
+            image: './project-DALL-E/DALL-E-Backgammon.webp',
+            link: 'https://github.com/mbatinefe/backgammon'
+          },
+          {
+            id: 8,
+            title: 'NFT - Educated Ape Club',
+            description: 'Polygon blockchain üzerinde benzersiz dijital sanat eserlerine sahip NFT koleksiyonu.',
+            skills: ['Solidity Programlama', 'Akıllı Sözleşme Geliştirme', 'Polygon Blockchain ile Tanışıklık', 'Metadata Depolama için IPFS', 'Web3 Entegrasyonu', 'Kriptografik Teknikler', 'Merkezi Olmayan Uygulama Geliştirme', 'Blockchain Güvenlik Uygulamaları', 'Token Standartları Bilgisi', 'NFT Pazar Yeri Dağıtımı'],
+            image: './project-DALL-E/EducatedApeClub-Sabanci.png',
+            link: 'https://opensea.io/collection/educatedapeclub'
+          },
+          // Diğer projeler eklenecek
+        ],
+        isTurkish: false,
+        activeProject: null,
+        currentProjects: []
       };
+    },
+    mounted() {
+      this.currentProjects = this.projects;
     },
     methods: {
       activateProject(project) {
-      this.activeProject = project;  
+        this.activeProject = project;  
 
       },
       closeModal() {
         this.activeProject = null;
+      },
+      toggleLanguage() {
+        this.currentProjects = this.isTurkish ? this.projectsTR : this.projects;
+      }
+    },
+    watch: {
+      isTurkish(newVal) {
+        this.currentProjects = newVal ? this.projectsTR : this.projects;
       }
     }
   };

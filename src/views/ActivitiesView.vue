@@ -7,7 +7,8 @@
         <label class="form-check-label right-label" for="langToggle">TR</label> 
       </div>
     </div>
-    <h2 class="text-center my-4">Activities</h2>
+    <h2 v-if="!isTurkish" class="text-center my-4">Activities</h2>
+    <h2 v-else class="text-center my-4">Aktiviteler</h2>
     <div class="timeline">
       <div class="timeline-item" v-for="(activity, index) in currentActivities" :key="index">
         <div class="timeline-date">

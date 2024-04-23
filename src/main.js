@@ -16,6 +16,8 @@ import '@vuepic/vue-datepicker/dist/main.css'
 // import 'bootstrap/dist/css/bootstrap.css'
 import "bootstrap"
 
+localStorage.setItem('isTurkish', JSON.stringify(false));
+
 const app = createApp(App)
 
 app.component('VueDatePicker', VueDatePicker);
