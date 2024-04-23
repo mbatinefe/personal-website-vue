@@ -378,6 +378,7 @@ export default {
       align-items: center;
       margin-right: 20px;
       margin-left: 20px;
+
   }
 
   @media (max-width: 768px) {
