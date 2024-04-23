@@ -1,10 +1,19 @@
 <template>
+    <div class="language-switch">
+      <div class="form-check form-switch">
+        <label class="form-check-label left-label">EN</label>
+        <input class="form-check-input" type="checkbox" id="langToggle" v-model="store.isTurkish">
+
+        <label class="form-check-label right-label" for="langToggle">TR</label> 
+      </div>
+    </div>
+
     <nav class="navbar navbar-expand-md navbar-light"> 
       <div class="container-fluid">
 
-        <a href="/" class="navbar-brand">
+        <router-link class="navbar-brand nav-link" to="/">
             <img src="/mbefe-logo-w-back.png" alt="Logo" class="navbar-icon">
-        </a>
+        </router-link>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -46,7 +55,66 @@
     </nav>
   </template>
   
-  <style>
+  <script>
+  import { store } from '@/store'; // Ensure this path is correct based on your project structure
+
+  export default {
+    setup() {
+
+      return {
+        store
+      };
+    }
+  };
+  </script>
+
+<style>
+
+.language-switch {
+    position: fixed;
+    top: 5px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+    color: #86C232;
+  }
+
+  .left-label {
+    margin-right: 50px;
+    font-weight: bold;
+  }
+
+  .right-label {
+    font-weight: bold;
+  }
+
+  .form-check-input:checked {
+    background-color: #3b3b3b;
+    border-color: #222629;
+  }
+
+  .form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(66, 66, 66, 0.5);
+  }
+
+  .form-check-input:checked + .form-check-label::before {
+    background-color: #222629;
+  }
+
+  .form-check-input + .form-check-label::before {
+    background-color: #222629;
+  }
+
+  .language-switch .form-check-input {
+    cursor: pointer;
+  }
+
+  .language-switch .form-check-label {
+    cursor: pointer;
+  }
+
+
   .navbar {
     background-color: #3b3b3b;
     

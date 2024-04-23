@@ -1,11 +1,4 @@
 <template>
-  <div class="language-switch">
-    <div class="form-check form-switch">
-      <label class="form-check-label left-label">EN</label>
-      <input class="form-check-input" type="checkbox" id="langToggle" v-model="isTurkish" @change="toggleLanguage">
-      <label class="form-check-label right-label" for="langToggle">TR</label> 
-    </div>
-  </div>
   <div class="home" v-if="!isTurkish">
     <h2 class="text-center my-4"> Welcome to My Portfolio</h2>
     <div class="header-with-clock">
@@ -36,15 +29,22 @@
 </template>
 
 <script>
+import { store } from '@/store';
+
+
 export default {
   name: 'HomeView',
   data() {
     return {
       currentTime: this.getCurrentTime(),
-      isTurkish: false,
       timeOfDayGreeting: this.getTimeOfDayGreeting(),
       timeOfDayGreetingTR: this.getTimeOfDayGreetingTR(),
     };
+  },
+  computed: {
+    isTurkish() {
+      return store.isTurkish;
+    }
   },
   created() {
     this.startClock();
@@ -79,50 +79,6 @@ export default {
 </script>
 
 <style scoped>
-
-  .language-switch {
-    position: fixed;
-    top: 5px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    z-index: 1000;
-    color: #86C232;
-  }
-
-  .left-label {
-    margin-right: 50px;
-    font-weight: bold;
-  }
-
-  .right-label {
-    font-weight: bold;
-  }
-
-  .form-check-input:checked {
-    background-color: #3b3b3b;
-    border-color: #222629;
-  }
-
-  .form-check-input:focus {
-    box-shadow: 0 0 0 0.25rem rgba(66, 66, 66, 0.5);
-  }
-
-  .form-check-input:checked + .form-check-label::before {
-    background-color: #222629;
-  }
-
-  .form-check-input + .form-check-label::before {
-    background-color: #222629;
-  }
-
-  .language-switch .form-check-input {
-    cursor: pointer;
-  }
-
-  .language-switch .form-check-label {
-    cursor: pointer;
-  }
 
   .header-with-clock {
     display: flex;
