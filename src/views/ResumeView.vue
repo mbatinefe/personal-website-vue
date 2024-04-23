@@ -1,17 +1,36 @@
 <template>
+  <h2 class="text-center my-4">{{textContent.title}}</h2>
   <div class="resume-view">
-    <h2 class="text-center my-4">Resume</h2>
-    <iframe src="/website-resume-mustafa_batin.pdf" frameborder="0" width="100%" height="100vh">
+
+    <iframe v-if="isTurkish" src="/website-resume-mustafa_batin-EN.pdf" frameborder="0" width="100%" height="100vh">
       Your browser does not support PDFs.
-      <a href="/website-resume-mustafa_batin.pdf">Download the PDF</a>.
+      <a href="/website-resume-mustafa_batin-EN.pdf">Download the PDF</a>.
     </iframe>
+
+    <iframe v-else src="/website-resume-mustafa_batin-EN.pdf" frameborder="0" width="100%" height="100vh">
+      Your browser does not support PDFs.
+      <a href="/website-resume-mustafa_batin-EN.pdf">Download the PDF</a>.
+    </iframe>
+
     <br/>
   </div>
 </template>
 
 <script>
+import { store } from '@/store';
+
 export default {
   name: 'ResumeView',
+  computed: {
+      textContent() {
+        return store.isTurkish
+          ? { title: 'Özgeçmiş' }
+          : { title: 'Resume' };
+      },
+      isTurkish() {
+        return store.isTurkish;
+      }     
+    },
 };
 </script>
 

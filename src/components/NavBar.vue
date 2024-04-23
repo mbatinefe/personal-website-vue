@@ -22,31 +22,25 @@
           <ul class="navbar-nav ml-auto">
             
             <li class="nav-item">
-              <router-link class="nav-link" to="/activities" active-class="active-link">Activities</router-link>
+              <router-link class="nav-link" to="/activities" active-class="active-link">{{ store.isTurkish ? 'Aktiviteler' : 'Activities' }}</router-link>
             </li>
-
             <li class="nav-item">
-              <router-link class="nav-link" to="/projects" active-class="active-link">Projects</router-link>
+              <router-link class="nav-link" to="/projects" active-class="active-link">{{ store.isTurkish ? 'Projeler' : 'Projects' }}</router-link>
             </li>
-
             <li class="nav-item">
-              <router-link class="nav-link" to="/skills" active-class="active-link">Skills</router-link>
+              <router-link class="nav-link" to="/skills" active-class="active-link">{{ store.isTurkish ? 'Yetenekler' : 'Skills' }}</router-link>
             </li>
-
             <li class="nav-item">
-              <router-link class="nav-link" to="/education" active-class="active-link">Education</router-link>
+              <router-link class="nav-link" to="/education" active-class="active-link">{{ store.isTurkish ? 'Eğitim' : 'Education' }}</router-link>
             </li>
-
             <li class="nav-item">
-              <router-link class="nav-link" to="/certificates" active-class="active-link">Certificates</router-link>
+              <router-link class="nav-link" to="/certificates" active-class="active-link">{{ store.isTurkish ? 'Sertifikalar' : 'Certificates' }}</router-link>
             </li>
-            
             <li class="nav-item">
-              <router-link class="nav-link" to="/resume" active-class="active-link">Resume</router-link>
+              <router-link class="nav-link" to="/resume" active-class="active-link">{{ store.isTurkish ? 'Özgeçmiş' : 'Resume' }}</router-link>
             </li>
-
             <li class="nav-item">
-              <router-link class="nav-link" to="/contact" active-class="active-link">Contact</router-link>
+              <router-link class="nav-link" to="/contact" active-class="active-link">{{ store.isTurkish ? 'İletişim' : 'Contact' }}</router-link>
             </li>
 
           </ul>

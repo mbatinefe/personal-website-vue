@@ -1,6 +1,6 @@
 <template>
+    <h2 class="text-center my-4">{{ textContent.title }}</h2>
     <div class="certificates container">
-        <h2 class="text-center my-4">Certificates</h2>
         <div class="grid">
             <div class="certificate-card" v-for="(certificate, index) in certificates" :key="index">
             <div class="certificate-content">
@@ -9,15 +9,15 @@
                 <p class="certificate-body">{{ certificate.body }}</p>
                 <div class="actions">
                     <button class="icon-button" @click="openModal(certificate.image)" title="Preview certificate">
-                        <i class="fas fa-eye"></i> Preview
+                        <i class="fas fa-eye"></i> {{ textContent.preview }}
                     </button>
                 </div>
             </div>
             <a v-if="certificate.link" :href="certificate.link" target="_blank" class="btn btn-primary" title="Verify certificate">
-                <i class="fas fa-check-circle"></i> Verify
+                <i class="fas fa-check-circle"></i> {{ textContent.verify }}
             </a>
             <button v-else class="btn btn-disabled" disabled title="No link available">
-                <i class="fas fa-check-circle"></i> Verify
+                <i class="fas fa-check-circle"></i> {{ textContent.verify }}
             </button>
             </div>
         </div>
@@ -25,7 +25,7 @@
             <div class="modal-content">
                 <span class="close" @click="closeModal()">&times;</span>
                 <iframe v-if="isPDF(currentImage)" :src="currentImage" style="width:100%; height:600px;" type="application/pdf">
-                    This site does not accept PDFs. Please download the image: <a :href="currentImage">Download PDF</a>.
+                    {{ textContent.pdfNotSupported }} <a :href="currentImage">Download PDF</a>.
                 </iframe>
                 <img v-else :src="currentImage" alt="Full Certificate" class="zoom-img"/>
             </div>
@@ -35,117 +35,141 @@
 
 
 <script>
+import { store } from '@/store';
 
-    export default {
+export default {
     name: 'CertificatesView',
-        data() {
-            return {
-            certificates: [
-                {
-                title: 'HSBC StepUp Adım Adım Bankacılık Programı',
-                body: '',
-                link: '',
-                image: './certificates/hsbc-step-up-mustafa-batin.jpg',
-                issue: 'April 2024'
-                },
-                {
-                title: 'Machine Learning Specialization',
-                body: '',
-                link: 'https://www.coursera.org/account/accomplishments/specialization/certificate/7LYXGR4N2WWM?trk=public_profile_see-credential',
-                image: './certificates/Coursera 7LYXGR4N2WWM.jpg',
-                issue: 'Jan 2024'
-                },
-                {
-                title: 'Yarınlar Seninle Mümkün',
-                body: '',
-                link: '',
-                image: './certificates/yarinlar-seninle-mumkun_katilim-sertifikası-mustafa-batin.jpg',
-                issue: 'April 2024'
-                }, 
-                {
-                title: 'Advanced Learning Algorithms',
-                body: '',
-                link: 'https://www.coursera.org/account/accomplishments/certificate/GKMDLX3RLMA6?trk=public_profile_see-credential',
-                image: './certificates/Coursera GKMDLX3RLMA6.jpg',
-                issue: 'Jan 2024'
-                },
-                {
-                title: ' Unsupervised Learning, Recommenders, Reinforcement Learning',
-                body: '',
-                link: 'https://www.coursera.org/account/accomplishments/verify/GW2ASK54M97S?trk=public_profile_see-credential',
-                image: './certificates/Coursera GW2ASK54M97S.jpg',
-                issue: 'Jan 2024'
-                },
-                {
-                title: 'Supervised Machine Learning: Regression and Classification',
-                body: '',
-                link: 'https://www.coursera.org/account/accomplishments/certificate/NX53ER32M3EQ?trk=public_profile_see-credential',
-                image: './certificates/Coursera NX53ER32M3EQ.jpg',
-                issue: 'Mar 2023'
-                },
-                {
-                title: 'Programming for Everybody (Getting Started with Python)',
-                body: '',
-                link: 'https://tr.linkedin.com/in/coursera.org/verify/Q7WFH7TGLBDN?trk=public_profile_see-credential',
-                image: './certificates/Coursera Q7WFH7TGLBDN.jpg',
-                issue: 'Dec 2020'
-                },
-                {
-                title: 'Career Essentials in Cybersecurity by Microsoft and LinkedIn',
-                body: '',
-                link: 'https://www.linkedin.com/learning/certificates/9706c23331ab50689cd0c6334ec42366521083fc3a04228c37f7d45192616a96?trk=public_profile_see-credential',
-                image: './certificates/CertificateOfCompletion_Career Essentials in Cybersecurity by Microsoft and LinkedIn.jpg',
-                issue: 'Jan 2024',
-                },
-                {
-                title: 'Career Essentials in Generative AI by Microsoft and LinkedIn',
-                body: '',
-                link: 'https://www.linkedin.com/learning/certificates/a99d6ebb48adddaafd807a7af3bf90f1b6f5463d2ee3bebf1f08fc0cd009b13e',
-                image: './certificates/CertificateOfCompletion_Career Essentials in Generative AI by Microsoft and LinkedIn.jpg',
-                issue: 'April 2024',
-                },
-                {
-                title: 'Cybersecurity Awareness: Cybersecurity Terminology',
-                body: '',
-                link: 'https://www.linkedin.com/learning/certificates/37f9fca201c7186e9a7576a908eb068a7181eafcf87ea404ceac0ea87decdb18?trk=public_profile_see-credential',
-                image: './certificates/cybersec-awareness.jpeg',
-                issue: 'Jan 2024'
-                },
-                {
-                title: 'Ethical Hacking: Introduction to Ethical Hacking',
-                body: '',
-                link: 'https://www.linkedin.com/learning/certificates/0099df67a52a0f5f0ef34fc155a6964c68f25cab62a347c54a11e8adc28c312b?trk=public_profile_see-credential',
-                image: './certificates/cybersec-ethical.jpeg',
-                issue: 'Jan 2024'
-                },
-                {
-                title: 'Cybersecurity Foundations',
-                body: '',
-                link: 'https://www.linkedin.com/learning/certificates/799307c72934e3986ce9bf8c1e02fa25e305e53a27bf7169c7aa5951b86b5968?trk=public_profile_see-credential',
-                image: './certificates/cybersec-foundations.jpeg',
-                issue: 'Jan 2024'
-                },
-                {
-                title: 'Stealth Penetration Testing with Advanced Enumeration',
-                body: '',
-                link: 'https://www.linkedin.com/learning/certificates/c0ff34ca9a007398af67c5ba6b2fd2277ad7b1be356119568c0a93dbc7c877d6?trk=public_profile_see-credential',
-                image: './certificates/cybersec-test.jpeg',
-                issue: 'Jan 2024'
-                },
-                {
-                title: 'The Cybersecurity Threat Landscape',
-                body: '',
-                link: 'https://www.linkedin.com/learning/certificates/b637777ac4700dfbdd2331a869dd49206be9cbe295d8d60b7f1d681a061ac838?trk=public_profile_see-credential',
-                image: './certificates/cybersec-threat.jpeg',
-                issue: 'Jan 2024'
-                },
+    data() {
+        return {
+        certificates: [
+            {
+            title: 'HSBC StepUp Adım Adım Bankacılık Programı',
+            body: '',
+            link: '',
+            image: './certificates/hsbc-step-up-mustafa-batin.jpg',
+            issue: 'April 2024'
+            },
+            {
+            title: 'Machine Learning Specialization',
+            body: '',
+            link: 'https://www.coursera.org/account/accomplishments/specialization/certificate/7LYXGR4N2WWM?trk=public_profile_see-credential',
+            image: './certificates/Coursera 7LYXGR4N2WWM.jpg',
+            issue: 'Jan 2024'
+            },
+            {
+            title: 'Yarınlar Seninle Mümkün',
+            body: '',
+            link: '',
+            image: './certificates/yarinlar-seninle-mumkun_katilim-sertifikası-mustafa-batin.jpg',
+            issue: 'April 2024'
+            }, 
+            {
+            title: 'Advanced Learning Algorithms',
+            body: '',
+            link: 'https://www.coursera.org/account/accomplishments/certificate/GKMDLX3RLMA6?trk=public_profile_see-credential',
+            image: './certificates/Coursera GKMDLX3RLMA6.jpg',
+            issue: 'Jan 2024'
+            },
+            {
+            title: ' Unsupervised Learning, Recommenders, Reinforcement Learning',
+            body: '',
+            link: 'https://www.coursera.org/account/accomplishments/verify/GW2ASK54M97S?trk=public_profile_see-credential',
+            image: './certificates/Coursera GW2ASK54M97S.jpg',
+            issue: 'Jan 2024'
+            },
+            {
+            title: 'Supervised Machine Learning: Regression and Classification',
+            body: '',
+            link: 'https://www.coursera.org/account/accomplishments/certificate/NX53ER32M3EQ?trk=public_profile_see-credential',
+            image: './certificates/Coursera NX53ER32M3EQ.jpg',
+            issue: 'Mar 2023'
+            },
+            {
+            title: 'Programming for Everybody (Getting Started with Python)',
+            body: '',
+            link: 'https://tr.linkedin.com/in/coursera.org/verify/Q7WFH7TGLBDN?trk=public_profile_see-credential',
+            image: './certificates/Coursera Q7WFH7TGLBDN.jpg',
+            issue: 'Dec 2020'
+            },
+            {
+            title: 'Career Essentials in Cybersecurity by Microsoft and LinkedIn',
+            body: '',
+            link: 'https://www.linkedin.com/learning/certificates/9706c23331ab50689cd0c6334ec42366521083fc3a04228c37f7d45192616a96?trk=public_profile_see-credential',
+            image: './certificates/CertificateOfCompletion_Career Essentials in Cybersecurity by Microsoft and LinkedIn.jpg',
+            issue: 'Jan 2024',
+            },
+            {
+            title: 'Career Essentials in Generative AI by Microsoft and LinkedIn',
+            body: '',
+            link: 'https://www.linkedin.com/learning/certificates/a99d6ebb48adddaafd807a7af3bf90f1b6f5463d2ee3bebf1f08fc0cd009b13e',
+            image: './certificates/CertificateOfCompletion_Career Essentials in Generative AI by Microsoft and LinkedIn.jpg',
+            issue: 'April 2024',
+            },
+            {
+            title: 'Cybersecurity Awareness: Cybersecurity Terminology',
+            body: '',
+            link: 'https://www.linkedin.com/learning/certificates/37f9fca201c7186e9a7576a908eb068a7181eafcf87ea404ceac0ea87decdb18?trk=public_profile_see-credential',
+            image: './certificates/cybersec-awareness.jpeg',
+            issue: 'Jan 2024'
+            },
+            {
+            title: 'Ethical Hacking: Introduction to Ethical Hacking',
+            body: '',
+            link: 'https://www.linkedin.com/learning/certificates/0099df67a52a0f5f0ef34fc155a6964c68f25cab62a347c54a11e8adc28c312b?trk=public_profile_see-credential',
+            image: './certificates/cybersec-ethical.jpeg',
+            issue: 'Jan 2024'
+            },
+            {
+            title: 'Cybersecurity Foundations',
+            body: '',
+            link: 'https://www.linkedin.com/learning/certificates/799307c72934e3986ce9bf8c1e02fa25e305e53a27bf7169c7aa5951b86b5968?trk=public_profile_see-credential',
+            image: './certificates/cybersec-foundations.jpeg',
+            issue: 'Jan 2024'
+            },
+            {
+            title: 'Stealth Penetration Testing with Advanced Enumeration',
+            body: '',
+            link: 'https://www.linkedin.com/learning/certificates/c0ff34ca9a007398af67c5ba6b2fd2277ad7b1be356119568c0a93dbc7c877d6?trk=public_profile_see-credential',
+            image: './certificates/cybersec-test.jpeg',
+            issue: 'Jan 2024'
+            },
+            {
+            title: 'The Cybersecurity Threat Landscape',
+            body: '',
+            link: 'https://www.linkedin.com/learning/certificates/b637777ac4700dfbdd2331a869dd49206be9cbe295d8d60b7f1d681a061ac838?trk=public_profile_see-credential',
+            image: './certificates/cybersec-threat.jpeg',
+            issue: 'Jan 2024'
+            },
 
-                // Additional certificates
-            ],
-            showModal: false,
-            currentImage: null,
-            };
-        },
+            // Additional certificates
+        ],
+        showModal: false,
+        currentImage: null,
+        };
+    },
+    computed: {
+        textContent() {
+            if (store.isTurkish) {
+                return {
+                    title: 'Sertifikalar',
+                    preview: 'Önizleme',
+                    verify: 'Doğrula',
+                    noLinkAvailable: 'Bağlantı yok',
+                    pdfNotSupported: 'Bu site PDF kabul etmiyor. Lütfen dosyayı indirin:',
+                    downloadPDF: 'PDF İndir'
+                };
+            } else {
+                return {
+                    title: 'Certificates',
+                    preview: 'Preview',
+                    verify: 'Verify',
+                    noLinkAvailable: 'No link available',
+                    pdfNotSupported: 'This site does not accept PDFs. Please download the image:',
+                    downloadPDF: 'Download PDF'
+                };
+            }
+        }
+    },
     methods: {
         openModal(imageUrl) {
             console.log("Opening modal with image URL:", imageUrl);
@@ -175,7 +199,6 @@
 .certificates {
     padding: 20px;
     background-color: #3b3b3b;
-    margin-top: 3rem;
 }
 
 .text-center {

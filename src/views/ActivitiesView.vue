@@ -1,7 +1,7 @@
 <template>
+  <h2 class="text-center my-4" v-if="isTurkish">Aktiviteler</h2>
+  <h2 class="text-center my-4" v-else>Activities</h2>
   <div class="activities container">
-    <h2 class="text-center my-4" v-if="isTurkish">Aktiviteler</h2>
-    <h2 class="text-center my-4" v-else>Activities</h2>
     <div class="timeline">
       <div class="timeline-item" v-for="(activity, index) in currentActivities" :key="index">
         <div class="timeline-date">
@@ -217,7 +217,7 @@ export default {
 <style scoped>
   .activities {
     padding: 20px;
-    margin-top: 3rem;
+;
     background-color: #3b3b3b;
   }
 
@@ -352,7 +352,6 @@ export default {
           flex-direction: column;
           align-items: center;
           margin-bottom: 3rem;
-
       }
 
       .timeline-content {

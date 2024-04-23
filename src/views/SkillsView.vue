@@ -1,6 +1,7 @@
 <template>
+  <h2 v-if="!isTurkish" class="text-center my-4">Skills</h2>
+  <h2 v-else class="text-center my-4">Yetenekler</h2>
   <div class="skills container">
-    <h2 class="text-center my-4">Skills</h2>
     <div v-for="(category, index) in skillCategories" :key="index" class="category-box">
       <h3 class="category-title">{{ category.category }}</h3>
       <div class="row">
@@ -22,11 +23,20 @@
 
 
 <script>
+  import { store } from '@/store';  
   export default {
     name: 'SkillsView',
+    computed: {
+      skillCategories() {
+        return store.isTurkish ? this.skillCategoriesTR : this.skillCategoriesEN;
+      },
+      isTurkish() {
+        return store.isTurkish;
+      }
+    },
     data() {
       return {
-        skillCategories: [
+        skillCategoriesEN: [
           {
             category: "Programming Languages",
             skills: [
@@ -88,9 +98,83 @@
               { id: 54, name: 'NFT Marketplace Deployment', description: 'Deploying and managing NFT marketplaces.', level: 7 },
             ]
           },
+        ],
+        skillCategoriesTR: [
+          {
+            category: "Programlama Dilleri",
+            skills: [
+              { id: 35, name: 'C++', description: 'Sistem ve uygulama geliştirmede ileri düzeyde C++ kullanımı.', level: 8 },
+              { id: 21, name: 'Python', description: 'Veri analizi, makine öğrenimi ve arka uç geliştirmede yetkin Python kullanımı.', level: 8 },
+              { id: 13, name: 'Java', description: 'Kurumsal uygulamalar ve Android geliştirmede iyi düzeyde Java bilgisi.', level: 3 },
+              { id: 1, name: 'HTML', description: 'Web sayfası içeriği oluşturma ve yapılandırmada yetenekli HTML kullanımı.', level: 7 },
+            ]
+          },
+          {
+            category: "Web Geliştirme",
+            skills: [
+              { id: 4, name: 'Vue.js', description: 'İlerici web uygulamaları geliştirmede deneyimli Vue.js kullanımı.', level: 5 },
+              { id: 2, name: 'JavaScript', description: 'Etkileşimli web uygulamaları için derin JavaScript anlayışı.', level: 7 },
+              { id: 3, name: 'CSS', description: 'Stil ve dinamik düzenler için CSS uzmanlığı.', level: 7 },
+              { id: 5, name: 'Express.js', description: 'Verimli web API’leri inşa etmede Express.js kullanımı.', level: 5 },
+              { id: 7, name: 'RESTful API Geliştirme', description: 'RESTful hizmetler tasarlama ve uygulama.', level: 5 },
+            ]
+          },
+          {
+            category: "Yazılım Geliştirme",
+            skills: [
+              { id: 10, name: 'Proje Yönetimi', description: 'Yazılım projelerini kavramdan dağıtıma kadar yönetme.', level: 8 },
+              { id: 12, name: 'Yazılım Geliştirme Yaşam Döngüsü', description: 'Tam yazılım geliştirme yaşam döngüsüne kapsamlı bir anlayış.', level: 8 },
+              { id: 14, name: 'Soket Programlama', description: 'Soketler kullanarak düşük seviyeli ağ iletişimi konusunda tecrübe.', level: 5 },
+              { id: 15, name: 'İstemci-Sunucu Mimarisi', description: 'Karmaşık istemci-sunucu mimarilerini anlama.', level: 4 },
+            ]
+          },
+          {
+            category: "Veri Bilimi & Makine Öğrenimi",
+            skills: [
+              { id: 22, name: 'Sinir Ağı Uygulamaları', description: 'Çeşitli uygulamalar için sinir ağları oluşturma ve eğitme.', level: 6 },
+              { id: 23, name: 'PyTorch', description: 'Derin öğrenme projelerinde PyTorch kullanımı.', level: 6 },
+              { id: 24, name: 'Numpy ile Veri İşleme', description: 'Numpy ile etkin veri işlemleri.', level: 6 },
+              { id: 25, name: 'Makine Öğrenimi Temelleri', description: 'Temel makine öğrenimi kavramlarında güçlü bir temel.', level: 7 },
+              { id: 26, name: 'Derin Öğrenme', description: 'Karmaşık problemleri çözmek için derin öğrenme algoritmaları uygulama.', level: 6 },
+              { id: 27, name: 'Veri Analizi', description: 'Python ile ileri düzey veri analizi teknikleri.', level: 8 },
+              { id: 28, name: 'Pandas Kütüphanesi', description: 'Veri manipülasyonu ve analizi için Pandas kullanımı.', level: 5 },
+              { id: 29, name: 'Veri Görselleştirme', description: 'Matplotlib ve diğer araçlarla etkileyici veri görselleştirmeleri oluşturma.', level: 7 },
+              { id: 30, name: 'Matplotlib', description: 'Matplotlib ile statik ve etkileşimli grafikler üretme.', level: 4 },
+              { id: 31, name: 'Veri Kazıma', description: 'Analiz ve raporlama için web kaynaklarından veri çıkarma.', level: 7 },
+              { id: 32, name: 'Web Veri Çıkarma', description: 'Çeşitli web platformlarından veri çıkarma işlemlerini otomatikleştirme.', level: 7 },
+              { id: 33, name: 'Otomatik Veri İşleme', description: 'Veri işleme iş akışlarını otomatikleştirme.', level: 7 },
+              { id: 34, name: 'Coğrafi Veri Analizi', description: 'Coğrafi verileri analiz etme ve görselleştirme.', level: 6 },
+            ]
+          },
+          {
+            category: "Blockchain Teknolojileri",
+            skills: [
+              { id: 45, name: 'Solidity Programlama', description: 'Ethereum tabanlı uygulamalar için akıllı kontratlar geliştirme.', level: 4 },
+              { id: 46, name: 'Akıllı Kontrat Geliştirme', description: 'Çeşitli blockchain platformlarında akıllı kontratlar tasarlama ve dağıtma.', level: 3 },
+              { id: 47, name: 'Polygon Blockchain Bilgisi', description: 'Ethereum ölçeklenebilirliğini artırmak için Polygon ile çalışma.', level: 7 },
+              { id: 48, name: 'IPFS ile Metadata Depolama', description: 'Blockchain uygulamalarında merkezi olmayan dosya depolama için IPFS kullanımı.', level: 3 },
+              { id: 49, name: 'Web3 Entegrasyonu', description: 'Uygulamaları merkezi olmayan web etkileşimi için Web3 teknolojileri ile entegrasyon.', level: 3 },
+              { id: 50, name: 'Kriptografik Teknikler', description: 'İşlemleri ve verileri güvenli hale getirmek için kriptografik yöntemler uygulama.', level: 3 },
+              { id: 51, name: 'Merkezi Olmayan Uygulama Geliştirme', description: 'Blockchain platformlarında merkezi olmayan uygulamalar (DApps) inşa etme.', level: 3 },
+              { id: 52, name: 'Blockchain Güvenlik Uygulamaları', description: 'Blockchain uygulamalarında güvenlik en iyi uygulamalarını sağlama.', level: 3 },
+              { id: 53, name: 'Token Standartları Bilgisi', description: 'ERC-20 ve ERC-721 token standartlarını anlama.', level: 3 },
+              { id: 54, name: 'NFT Pazar Yeri Dağıtımı', description: 'NFT pazar yerlerini dağıtma ve yönetme.', level: 7 },
+            ]
+          },
         ]
+
       };
     },
+    methods: {
+      toggleLanguage() {
+        store.toggleLanguage();
+      }
+    },
+    watch: {
+      isTurkish(newVal) {
+        console.log(`Language switched to: ${newVal ? 'Turkish' : 'English'}`);
+      }
+    }
   };
 </script>
 
@@ -117,7 +201,7 @@
   }
 
   .skills {
-    padding-top: 20px;
+
     padding-bottom: 40px;
     background-color: #6B6E70; 
   }

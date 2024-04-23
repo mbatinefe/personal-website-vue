@@ -1,9 +1,8 @@
 <template>
-
+    <h2 class="text-center my-4">{{ isTurkish ? 'Eğitim' : 'Education' }}</h2>
     <div class="education container">
-      <h2 class="text-center my-4">Education</h2>
       <div class="timeline">
-        <div class="timeline-item" v-for="(education, index) in educationalBackground" :key="index">
+        <div class="timeline-item" v-for="(education, index) in currentEducationalBackground" :key="index">
           <div class="timeline-icon">
             <i class="fas fa-school"></i>
           </div>
@@ -25,11 +24,13 @@
   </template>
   
   <script>
+  import { store } from '@/store';
+
   export default {
     name: 'EducationView',
     data() {
       return {
-        educationalBackground: [
+        educationalBackgroundEN: [
           {
             institution: 'Sabancı University',
             program: 'Bachelor, Computer Science and Engineering',
@@ -104,8 +105,92 @@
             description: 'Achieved top 1.06% performance in the national TEOG exam in Turkiye.',
             link: 'https://burakbora.meb.k12.tr/'
         }
+        ],
+        educationalBackgroundTR: [
+          {
+            institution: 'Sabancı Üniversitesi',
+            program: 'Lisans, Bilgisayar Bilimleri ve Mühendisliği',
+            duration: 'Ekim 2020 - Haziran 2025',
+            description: 'İş Analitiği yan dalı ile birlikte Bilgisayar Bilimleri ve Mühendisliği ana dalında eğitimine devam etmekte. Çeşitli akademik ve dış etkinliklere katılmıştır.',
+            link: 'https://cs.sabanciuniv.edu/en/education/undergraduate',
+            courses: [
+                { name: 'Mantık & Dijital Sistem Tasarımı - CS303', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/CS-303' },
+                { name: 'İleri Programlama - CS204', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/CS-204' },
+                { name: 'Veri Bilimine Giriş - CS210', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/CS-210' },
+                { name: 'Ayrık Matematik - MATH204', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/MATH-204' },
+                { name: 'Kalkülüs 1 - MATH101', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/MATH-101' },
+                { name: 'Kalkülüs 2 - MATH102', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/MATH-102' },
+                { name: 'Topluma Katılım Projeleri - CIP101', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/CIP-101' },
+                { name: 'Sorun Çözme için Hesaplamalı Yaklaşımlar - IF100', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/IF-100' },
+                { name: 'İnsanlık & Toplum 1 - SPS101', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/SPS-101' },
+                { name: 'İnsanlık & Toplum 2 - SPS102', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/SPS-102' },
+                { name: 'Bilgisayar Bilimlerine Giriş - CS201', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/CS-201' },
+                { name: 'İşletmelerde Veri Analizi ve Çözümlemelerine Giriş - MGMT203', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/MGMT-203' },
+                { name: 'Malzeme Bilimine Giriş - ENS205', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/ENS-205' },
+                { name: 'Olasılığa Giriş - MATH203', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/MATH-203' },
+                { name: 'Doğrusal Cebir - MATH201', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/MATH-201' },
+                { name: 'Batı Sanatının Başyapıtları - HUM202', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/HUM-202' },
+                { name: 'Atatürk İlkeleri 1 - HIST191', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/HIST-191' },
+                { name: 'Atatürk İlkeleri 2 - HIST192', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/HIST-192' },
+                { name: 'Proje - PROJ201', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/PROJ-201' },
+                { name: 'Doğa Bilimleri 1 - NS101', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/NS-101' },
+                { name: 'Doğa Bilimleri 2 - NS102', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/NS-102' },
+                { name: 'Türk Dili ve Edebiyatı 1 - TLL101', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/TLL-101' },
+                { name: 'Türk Dili ve Edebiyatı 2 - TLL102', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/TLL-102' }
+            ]
+          },
+          {
+            institution: 'Management Center Innsbruck',
+            program: 'Erasmus, İşletme ve Yönetim',
+            duration: 'Mart 2024 - Temmuz 2024',
+            description: 'İşletme yönetimi teorileri ve uygulamalarına odaklanan değişim programı.',
+            link: 'https://www.mci.edu/en/study/international',
+            courses: [
+                { name: 'İşletme Seçmeli - B&M-B-5-EEM-EEM-IEL', link: 'https://www.mci4me.at/en/component/syllabi/detail/44057/23097' },
+                { name: 'Yenilik Yönetimi - B&M-B-4-INM-INM-ILV', link: 'https://www.mci4me.at/en/component/syllabi/detail/43552/23097' },
+                { name: 'Uluslararası Yönetim - BAM-B-5-EIN-INM-SE', link: 'https://www.mci4me.at/en/component/syllabi/detail/43624/23097' },
+                { name: 'Liderlik - BAM-B-5-EIN-LEA-SE', link: 'https://www.mci4me.at/en/component/syllabi/detail/43625/23097' },
+                { name: 'AB Değerleri & Dijitalleşme - IFLV6571', link: 'https://www.mci4me.at/en/component/syllabi/detail/44530/23097' },
+                { name: 'Uluslararası Pazarlama - IFLV6512', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/MKTG-403' }
+            ]
+          },
+          {
+            institution: 'Hong Kong Baptist Üniversitesi',
+            program: 'Erasmus Worldwide, Bilgisayar Bilimleri',
+            duration: 'Ağustos 2023 - Ocak 2024',
+            description: 'Bilgisayar Bilimleri alanında uzmanlık kazandırmayı amaçlayan uluslararası akademik deneyim.',
+            link: 'https://intl.hkbu.edu.hk/student-exchange/incoming-students',
+            courses: [
+                { name: 'Algoritmalar - CS301', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/CS-301' },
+                { name: 'Yapay Zeka - CS404', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/CS-404' },
+                { name: 'Bilgisayar Ağları - CS408', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/CS-408' },
+                { name: 'Makine Öğrenimi - CS412', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/CS-412' },
+                { name: 'Yazılım Mühendisliği - CS308', link: 'https://www.sabanciuniv.edu/en/aday-ogrenciler/lisans/ders-katalogu/course/CS-308' }
+            ]
+          },
+          {
+            institution: 'Çözüm Akademi Lisesi',
+            program: 'Lise',
+            duration: 'Eylül 2018 - Haziran 2020',
+            description: 'Bilim, matematik ve üniversite giriş sınavı (YKS) odaklı lise.',
+          },
+          {
+            institution: 'Burak Bora Anadolu Lisesi',
+            program: 'Lise',
+            duration: 'Eylül 2016 - Haziran 2018',
+            description: 'Türkiye ulusal TEOG sınavında %1.06 başarıyla ilk sıralarda yer aldı.',
+            link: 'https://burakbora.meb.k12.tr/'
+          }
         ]
       };
+    },
+    computed: {
+      isTurkish() {
+        return store.isTurkish;
+      },
+      currentEducationalBackground() {
+        return this.isTurkish ? this.educationalBackgroundTR : this.educationalBackgroundEN;
+      }
     }
   };
   </script>
@@ -114,7 +199,6 @@
 
 .education {
     padding: 20px;
-    margin-top: 3rem;
     background-color: #3b3b3b;
 }
 

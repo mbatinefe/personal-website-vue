@@ -1,7 +1,5 @@
 import { reactive } from 'vue';
 
-const initialState = JSON.parse(localStorage.getItem('isTurkish')) || false;
-
 export const store = reactive({
     isTurkish: JSON.parse(localStorage.getItem('isTurkish')) || false,
     toggleLanguage() {

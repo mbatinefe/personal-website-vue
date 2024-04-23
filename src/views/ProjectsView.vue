@@ -1,7 +1,7 @@
 <template>
+  <h2 v-if="!isTurkish" class="text-center my-4">Projects</h2>
+  <h2 v-else class="text-center my-4">Projeler</h2>
   <div class="projects container">
-    <h2 v-if="!isTurkish" class="text-center my-4">Projects</h2>
-    <h2 v-else class="text-center my-4">Projeler</h2>
     <div class="row">
       <div class="col-md-4" v-for="project in currentProjects" :key="project.id" >
         <div class="card mb-4">
@@ -225,7 +225,7 @@
   }
 
   .projects {
-    padding-top: 20px;
+
     padding-bottom: 40px;
   }
   
