@@ -16,7 +16,7 @@
                 <a :href="course.link" target="_blank">{{ course.name }}</a>
               </li>
             </ul>
-            <a :href="education.link" target="_blank" class="timeline-link">Learn more</a>
+            <a :href="education.link" target="_blank" class="timeline-link">{{ isTurkish ? 'Daha Fazlası...' : 'Learn More...' }}</a>
           </div>
         </div>
       </div>

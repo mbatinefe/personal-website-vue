@@ -3,7 +3,6 @@
       <div class="form-check form-switch">
         <label class="form-check-label left-label">EN</label>
         <input class="form-check-input" type="checkbox" id="langToggle" v-model="store.isTurkish">
-
         <label class="form-check-label right-label" for="langToggle">TR</label> 
       </div>
     </div>
@@ -50,7 +49,7 @@
   </template>
   
   <script>
-  import { store } from '@/store'; // Ensure this path is correct based on your project structure
+  import { store } from '@/store';
 
   export default {
     setup() {
